@@ -6,6 +6,10 @@ Quand le site change de domaine, vous perdez tout : historique, watchlist, favor
 
 **Aucune donnée n'est envoyée sur internet.** Tout reste en local, entre votre navigateur et votre fichier.
 
+## Aperçu
+
+<video src="https://github.com/WaYyTempest/as-sync/raw/master/assets/AS-SYNC.mp4" controls></video>
+
 ## Fonctionnalités
 
 - **Export** : récupère vos données depuis le site et les enregistre dans un fichier JSON
