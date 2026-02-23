@@ -8,7 +8,7 @@ Quand le site change de domaine, vous perdez tout : historique, watchlist, favor
 
 ## Aperçu
 
-<video src="https://github.com/WaYyTempest/as-sync/raw/master/assets/AS-SYNC.mp4" controls></video>
+![Aperçu](assets/AS-SYNC.gif)
 
 ## Fonctionnalités
 
@@ -24,7 +24,7 @@ Le fichier exporté est une copie exacte de vos données. Ce que vous exportez e
 
 1. Rendez-vous sur `about:debugging#/runtime/this-firefox`
 2. Cliquez sur "Charger un module complémentaire temporaire"
-3. Sélectionnez le fichier `as-sync-1.0.0-firefox.zip`
+3. Sélectionnez le fichier `as-sync-1.0.0.xpi` ou le `manifest.json` du dossier `output/firefox-mv2/`
 
 ### Chrome
 
@@ -42,8 +42,6 @@ Si vous souhaitez comprendre le fonctionnement du code, corriger un bug ou ajout
 npm install
 npm run build          # Chrome
 npm run build:firefox  # Firefox
-npm run zip            # Chrome .zip
-npx wxt zip -b firefox # Firefox .zip
 ```
 
 ## Licence
