@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AS Sync - Import</title>
+</head>
+<body>
+  <div id="app">
+    <div id="error-state" class="error-state" style="display:none">
+      <p>No target tab specified. Use the Import button from the popup while on the target website.</p>
+    </div>
+
+    <div id="import-ui" style="display:none">
+      <h1>
+        <img src="/icon-48.png" alt="AS Sync" class="logo" width="28" height="28" />
+        AS Sync — Import
+      </h1>
+      <p class="target-info">Target: <strong id="target-domain">unknown</strong></p>
+
+      <div class="drop-zone" id="drop-zone">
+        <p>Click to select a JSON file or drag & drop it here</p>
+        <p class="hint">Exported localStorage backup (.json)</p>
+      </div>
+      <input type="file" id="file-input" accept=".json" style="display:none" />
+
+      <div class="preview" id="preview" style="display:none">
+        <div class="preview-header">Import Preview</div>
+        <div class="preview-meta" id="preview-meta"></div>
+        <div class="key-list" id="preview-keys"></div>
+        <div class="actions">
+          <button class="btn-cancel" id="btn-cancel">Cancel</button>
+          <button class="btn-confirm" id="btn-confirm">Import into localStorage</button>
+        </div>
+      </div>
+
+      <div class="message" id="message" style="display:none"></div>
+    </div>
+  </div>
+  <script type="module" src="./main.ts"></script>
+</body>
+</html>

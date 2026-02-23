@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=400" />
+  <title>AS Sync</title>
+</head>
+<body>
+  <div id="app">
+    <div class="popup">
+      <header class="header">
+        <div class="header-top">
+          <div class="logo-area">
+            <img src="/icon-48.png" alt="AS Sync" class="logo" width="24" height="24" />
+            <h1>AS Sync</h1>
+          </div>
+          <div class="status" id="status">
+            <span class="status-dot"></span>
+            <span class="status-text">Loading...</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="summary" id="summary" style="display:none">
+        <div class="stat">
+          <span class="stat-value" id="count-history">0</span>
+          <span class="stat-label">History</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="count-watchlist">0</span>
+          <span class="stat-label">Watchlist</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="count-favorites">0</span>
+          <span class="stat-label">Favorites</span>
+        </div>
+      </div>
+
+      <div class="progress-list" id="progress-list"></div>
+
+      <div class="actions">
+        <button class="btn-primary" id="btn-export" disabled>Export</button>
+        <button class="btn-secondary" id="btn-import">Import</button>
+      </div>
+
+      <div class="message" id="message" style="display:none"></div>
+    </div>
+  </div>
+  <script type="module" src="./main.ts"></script>
+</body>
+</html>

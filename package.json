@@ -1,0 +1,24 @@
+{
+  "name": "as-sync",
+  "version": "1.0.0",
+  "author": "WaYyTempest",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WaYyTempest/as-sync"
+  },
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wxt",
+    "dev:firefox": "wxt -b firefox",
+    "build": "wxt build",
+    "build:firefox": "wxt build -b firefox",
+    "zip": "wxt zip",
+    "zip:firefox": "wxt zip -b firefox",
+    "postinstall": "wxt prepare"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3",
+    "wxt": "^0.20.17"
+  }
+}
