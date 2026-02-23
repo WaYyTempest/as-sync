@@ -1,0 +1,8 @@
+node_modules/
+output/
+.wxt/
+*.log
+.env
+*.sh
+package-lock.json
+pnpm-lock.yaml
