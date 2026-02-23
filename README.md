@@ -20,29 +20,25 @@ Le fichier exporté est une copie exacte de vos données. Ce que vous exportez e
 
 ## Installation
 
+Téléchargez la dernière version depuis la page [Releases](https://github.com/WaYyTempest/as-sync/releases).
+
 ### Firefox
 
-1. Rendez-vous sur `about:debugging#/runtime/this-firefox`
-2. Cliquez sur "Charger un module complémentaire temporaire"
-3. Sélectionnez le fichier `as-sync-1.0.0.xpi` ou le `manifest.json` du dossier `output/firefox-mv2/`
+1. Téléchargez le fichier `.xpi`
+2. Rendez-vous sur `about:debugging#/runtime/this-firefox`
+3. Cliquez sur "Charger un module complémentaire temporaire"
+4. Sélectionnez le fichier `.xpi` téléchargé
 
 ### Chrome
 
-1. Rendez-vous sur `chrome://extensions`
-2. Activez le "Mode développeur"
-3. Cliquez sur "Charger l'extension non empaquetée" et sélectionnez le dossier `output/chrome-mv3/`
+1. Téléchargez et décompressez le fichier `as-sync-*-chrome.zip`
+2. Rendez-vous sur `chrome://extensions`
+3. Activez le "Mode développeur"
+4. Cliquez sur "Charger l'extension non empaquetée" et sélectionnez le dossier décompressé
 
 ## Pour les développeurs
 
 Si vous souhaitez comprendre le fonctionnement du code, corriger un bug ou ajouter une fonctionnalité, consultez le [README-DEV.md](README-DEV.md).
-
-## Build
-
-```bash
-npm install
-npm run build          # Chrome
-npm run build:firefox  # Firefox
-```
 
 ## Licence
 
