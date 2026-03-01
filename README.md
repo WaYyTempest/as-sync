@@ -9,16 +9,21 @@ Quand le site change de domaine, vous perdez tout : historique, watchlist, favor
 ## Aperçu
 
 ![Aperçu](assets/AS-SYNC.gif)
+![Aperçu](assets/website.png)
 
 ## Fonctionnalités
 
 - **Export** : récupère vos données depuis le site et les enregistre dans un fichier JSON
 - **Import** : vous choisissez votre fichier, vous vérifiez son contenu, et l'extension remet tout en place
-- **Résumé** : le popup affiche un aperçu de vos données (historique, watchlist, favoris)
+- **Résumé** : la pop-up affiche un aperçu de vos données (historique, watchlist, favoris)
 
 Le fichier exporté est une copie exacte de vos données. Ce que vous exportez est réimporté tel quel.
 
 ## Installation
+
+[Firefox Addons](https://addons.mozilla.org/en-US/firefox/addon/as-sync/)
+
+Chrome Extension...
 
 Téléchargez la dernière version depuis la page [Releases](https://github.com/WaYyTempest/as-sync/releases).
 
