@@ -1,19 +1,24 @@
 /* anime-sama.tv design system */
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   width: 380px;
   background: #000000;
   color: #cbd5e1;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 13px;
   position: relative;
   overflow-x: hidden;
 }
 
 body::before {
-  content: '';
+  content: "";
   position: fixed;
   width: 400px;
   height: 400px;
@@ -27,14 +32,27 @@ body::before {
   left: -100px;
 }
 
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.3); border-radius: 10px; }
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, rgba(14, 165, 233, 0.4), rgba(14, 165, 233, 0.6));
+  background: linear-gradient(
+    180deg,
+    rgba(14, 165, 233, 0.4),
+    rgba(14, 165, 233, 0.6)
+  );
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, rgba(14, 165, 233, 0.5), rgba(14, 165, 233, 0.7));
+  background: linear-gradient(
+    180deg,
+    rgba(14, 165, 233, 0.5),
+    rgba(14, 165, 233, 0.7)
+  );
 }
 
 .popup {
@@ -130,6 +148,40 @@ body::before {
   font-weight: 600;
 }
 
+.type-filter {
+  display: flex;
+  gap: 4px;
+  padding: 8px 16px;
+  border-bottom: 1px solid rgba(70, 100, 150, 0.12);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.filter-btn {
+  flex: 1;
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  background: rgba(30, 50, 80, 0.3);
+  color: #7f93a6;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  background: rgba(30, 50, 80, 0.6);
+  color: #cbd5e1;
+}
+
+.filter-btn.active {
+  background: rgba(14, 165, 233, 0.2);
+  color: #0ea5e9;
+  border-color: rgba(14, 165, 233, 0.3);
+}
+
 .progress-list {
   flex: 1;
   overflow-y: auto;
@@ -143,6 +195,9 @@ body::before {
 }
 
 .title-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 13px;
   font-weight: 800;
   color: #ffffff;
@@ -150,6 +205,15 @@ body::before {
   border-bottom: 1px solid rgba(70, 100, 150, 0.15);
   margin-bottom: 4px;
   letter-spacing: 0.02em;
+  cursor: pointer;
+}
+
+.title-checkbox {
+  width: 14px;
+  height: 14px;
+  accent-color: #0ea5e9;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
 .title-entry {
@@ -178,12 +242,30 @@ body::before {
   letter-spacing: 0.3px;
 }
 
-.badge { background: rgba(70, 100, 150, 0.2); color: #9fb6c9; }
-.badge-scan { background: rgba(136, 87, 229, 0.25); color: #d2a8ff; }
-.badge-anime { background: rgba(14, 165, 233, 0.2); color: #0ea5e9; }
-.badge-film { background: rgba(210, 153, 34, 0.25); color: #e3b341; }
-.badge-vf { background: rgba(63, 185, 80, 0.25); color: #56d364; }
-.badge-vostfr { background: rgba(14, 165, 233, 0.2); color: #0ea5e9; }
+.badge {
+  background: rgba(70, 100, 150, 0.2);
+  color: #9fb6c9;
+}
+.badge-scan {
+  background: rgba(136, 87, 229, 0.25);
+  color: #d2a8ff;
+}
+.badge-anime {
+  background: rgba(14, 165, 233, 0.2);
+  color: #0ea5e9;
+}
+.badge-film {
+  background: rgba(210, 153, 34, 0.25);
+  color: #e3b341;
+}
+.badge-vf {
+  background: rgba(63, 185, 80, 0.25);
+  color: #56d364;
+}
+.badge-vostfr {
+  background: rgba(14, 165, 233, 0.2);
+  color: #0ea5e9;
+}
 
 .empty-state {
   padding: 32px 16px;
@@ -227,15 +309,27 @@ button:focus-visible {
 
 .btn-primary {
   flex: 1;
-  background: linear-gradient(135deg, rgba(14, 165, 233, 0.8), rgba(14, 165, 233, 1));
+  background: linear-gradient(
+    135deg,
+    rgba(14, 165, 233, 0.8),
+    rgba(14, 165, 233, 1)
+  );
   color: #fff;
   box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
 }
 .btn-primary:hover:not(:disabled) {
-  background: linear-gradient(135deg, rgba(14, 165, 233, 0.9), rgba(0, 212, 255, 1));
+  background: linear-gradient(
+    135deg,
+    rgba(14, 165, 233, 0.9),
+    rgba(0, 212, 255, 1)
+  );
   box-shadow: 0 6px 16px rgba(14, 165, 233, 0.3);
 }
-.btn-primary:disabled { opacity: 0.4; cursor: not-allowed; box-shadow: none; }
+.btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
 
 .btn-secondary {
   flex: 1;
@@ -257,14 +351,26 @@ button:focus-visible {
 }
 
 .message-success {
-  background: linear-gradient(135deg, rgba(63, 185, 80, 0.1), rgba(63, 185, 80, 0.2));
+  background: linear-gradient(
+    135deg,
+    rgba(63, 185, 80, 0.1),
+    rgba(63, 185, 80, 0.2)
+  );
   color: #3fb950;
 }
 .message-error {
-  background: linear-gradient(135deg, rgba(127, 29, 29, 0.3), rgba(91, 33, 33, 0.3));
+  background: linear-gradient(
+    135deg,
+    rgba(127, 29, 29, 0.3),
+    rgba(91, 33, 33, 0.3)
+  );
   color: #dc2626;
 }
 .message-info {
-  background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(14, 165, 233, 0.15));
+  background: linear-gradient(
+    135deg,
+    rgba(14, 165, 233, 0.1),
+    rgba(14, 165, 233, 0.15)
+  );
   color: #0ea5e9;
 }
