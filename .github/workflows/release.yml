@@ -2,8 +2,10 @@ name: Release
 
 on:
   push:
-    tags:
-      - "v*"
+    branches:
+      - master
+    paths:
+      - "wxt.config.ts"
 
 permissions:
   contents: write
@@ -14,36 +16,70 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract version
+        id: version
+        run: |
+          VERSION=$(grep -oP 'version:\s*"\K[^"]+' wxt.config.ts)
+          echo "version=v${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "Detected version: v${VERSION}"
+
+      - name: Check if release already exists
+        id: check
+        run: |
+          if gh release view "${{ steps.version.outputs.version }}" > /dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}
 
       - name: Setup Node
+        if: steps.check.outputs.exists == 'false'
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
       - name: Install pnpm
+        if: steps.check.outputs.exists == 'false'
         run: npm install -g pnpm
 
       - name: Install dependencies
+        if: steps.check.outputs.exists == 'false'
         run: pnpm install --no-frozen-lockfile
 
       - name: Build Chrome
+        if: steps.check.outputs.exists == 'false'
         run: pnpm wxt build --browser chrome
 
       - name: Build Firefox
+        if: steps.check.outputs.exists == 'false'
         run: pnpm wxt build --browser firefox
 
       - name: Package artifacts
+        if: steps.check.outputs.exists == 'false'
         run: |
-          VERSION=${GITHUB_REF_NAME}
+          VERSION=${{ steps.version.outputs.version }}
           cd output/chrome-mv3 && zip -r ../../as-sync-${VERSION}-chrome.zip . && cd ../..
           cd output/firefox-mv2 && zip -r ../../as-sync-${VERSION}-firefox.zip . && cd ../..
           cp as-sync-${VERSION}-firefox.zip as-sync-${VERSION}-firefox.xpi
 
+      - name: Create tag
+        if: steps.check.outputs.exists == 'false'
+        run: |
+          git tag ${{ steps.version.outputs.version }}
+          git push origin ${{ steps.version.outputs.version }}
+
       - name: Create GitHub Release
+        if: steps.check.outputs.exists == 'false'
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: ${{ steps.version.outputs.version }}
           generate_release_notes: true
           files: |
-            as-sync-${{ github.ref_name }}-chrome.zip
-            as-sync-${{ github.ref_name }}-firefox.zip
-            as-sync-${{ github.ref_name }}-firefox.xpi
+            as-sync-${{ steps.version.outputs.version }}-chrome.zip
+            as-sync-${{ steps.version.outputs.version }}-firefox.zip
+            as-sync-${{ steps.version.outputs.version }}-firefox.xpi
