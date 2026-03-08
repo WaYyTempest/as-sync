@@ -1,0 +1,49 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Chrome
+        run: pnpm wxt build --browser chrome
+
+      - name: Build Firefox
+        run: pnpm wxt build --browser firefox
+
+      - name: Package artifacts
+        run: |
+          VERSION=${GITHUB_REF_NAME}
+          cd output/chrome-mv3 && zip -r ../../as-sync-${VERSION}-chrome.zip . && cd ../..
+          cd output/firefox-mv2 && zip -r ../../as-sync-${VERSION}-firefox.zip . && cd ../..
+          cp as-sync-${VERSION}-firefox.zip as-sync-${VERSION}-firefox.xpi
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: |
+            as-sync-${{ github.ref_name }}-chrome.zip
+            as-sync-${{ github.ref_name }}-firefox.zip
+            as-sync-${{ github.ref_name }}-firefox.xpi
