@@ -22,7 +22,7 @@ jobs:
       - name: Extract version
         id: version
         run: |
-          VERSION=$(grep -oP 'version:\s*"\K[^"]+' wxt.config.ts)
+          VERSION=$(grep -oP '^\s*version:\s*"\K[^"]+' wxt.config.ts | head -1)
           echo "version=v${VERSION}" >> "$GITHUB_OUTPUT"
           echo "Detected version: v${VERSION}"
 

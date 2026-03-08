@@ -6,7 +6,7 @@ export default defineConfig({
     name: "AS Sync",
     description:
       "Backup and restore your anime-sama.tv progress across domain changes",
-    version: "1.2.0",
+    version: "1.2.1",
     author: "WaYyTempest",
     homepage_url: "https://github.com/WaYyTempest/as-sync",
     permissions: ["storage", "activeTab"],
