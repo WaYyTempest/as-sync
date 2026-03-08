@@ -80,11 +80,21 @@ function setupEvents() {
   document
     .getElementById("btn-confirm")!
     .addEventListener("click", confirmImport);
+
+  const toggleKeysBtn = document.getElementById("btn-toggle-keys")!;
+  const previewKeys = document.getElementById("preview-keys")!;
+  toggleKeysBtn.addEventListener("click", () => {
+    const isHidden = previewKeys.style.display === "none";
+    previewKeys.style.display = isHidden ? "" : "none";
+    toggleKeysBtn.textContent = isHidden ? "Hide keys" : "Show keys";
+  });
   document.getElementById("btn-cancel")!.addEventListener("click", () => {
     pendingData = null;
     parsedData = null;
     excludedTitles = new Set<string>();
     document.getElementById("preview")!.style.display = "none";
+    document.getElementById("preview-keys")!.style.display = "none";
+    document.getElementById("btn-toggle-keys")!.textContent = "Show keys";
     document.getElementById("drop-zone")!.style.display = "";
     resetTypeFilterUI();
     hideMsg();
@@ -354,7 +364,7 @@ async function confirmImport() {
     } else {
       showMsg(`Import failed: ${response?.error || "Unknown error"}`, "error");
       btn.disabled = false;
-      btn.textContent = "Import into localStorage";
+      btn.textContent = "Import";
     }
   } catch (err) {
     showMsg(

@@ -312,6 +312,28 @@ h1 {
   font-weight: 600;
 }
 
+.btn-toggle-keys {
+  display: block;
+  width: calc(100% - 32px);
+  margin: 0 16px 8px;
+  padding: 8px 12px;
+  background: rgba(30, 50, 80, 0.3);
+  color: #7f93a6;
+  border: 1px solid rgba(70, 100, 150, 0.15);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.btn-toggle-keys:hover {
+  background: rgba(30, 50, 80, 0.6);
+  color: #cbd5e1;
+  border-color: rgba(70, 100, 150, 0.3);
+}
+
 .key-list {
   max-height: 200px;
   overflow-y: auto;
